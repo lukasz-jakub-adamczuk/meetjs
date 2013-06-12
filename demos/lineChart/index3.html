@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+		<meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <title>Line Chart - Meet.js Meetup</title>
+        <meta name="description" content="Line Chart with D3.js " />
+        <meta name="keywords" content="d3.js, area charts, zoom, pan, data, infographic, ajavscript, chart" />
+        <meta name="author" content="ash" />
+        <link rel="shortcut icon" href="../favicon.ico">
+        <link rel="stylesheet" type="text/css" href="css/d3_widget_styles.css" />
+		<link href='http://fonts.googleapis.com/css?family=Lato:300,700' rel='stylesheet' type='text/css' />
+		<script src="js/d3.v3.min.js"></script>
+		<script src="js/d3_line_chart.js"></script>
+		<script src="data/data.json"></script>
+		<style type="text/css">
+		.container {
+			float: left;
+			}
+		</style>
+    </head>
+    <body>
+        <div id="chart" class="container" data-widget="chart_one">
+			<p class="value-labels">
+				<small id="toggle-menu">menu</small>
+				<span>Date, value, sum:</span>
+				<strong class="point-time"></strong>
+				<strong class="point-value"></strong>
+				<strong class="point-sum"></strong>
+			</p>
+			<p class="config time-windows">
+				<label>Time window:</label>
+				
+				<span data-type="all-switch">all</span>
+			</p>
+			<p class="config time-range">
+				<label class="label">Time range:</label>
+				<input class="time-start" name="time-start" type="date" placeholder="Start" size="10"/>
+				<input class="time-stop" name="time-stop" type="date" placeholder="Stop" size="10"/>
+				<input type="button" class="button" value="Show" />
+			</p>
+			<script type="text/javascript">
+			
+			var margin = {top: 10, right: 50, bottom: 50, left: 50},
+				width = 540 - margin.left - margin.right,
+				height = 300 - margin.top - margin.bottom,
+				contextHeight = 15;
+				contextWidth = width;
+				
+			(function() {
+				
+			var svg = d3.select('#chart').append("svg")
+						.attr("width", width + margin.left + margin.right)
+						.attr("height", height + margin.top + margin.bottom);
+									
+
+
+			// toggling menu
+			var menu = d3.select('#toggle-menu')
+				.on('click', function() {
+					if (this.getAttribute('class') == 'visible') {
+						this.setAttribute('class', 'invisible');
+						d3.selectAll('.config').style('display', 'none');
+						d3.select('.context').style('display', 'none');
+					} else {
+						this.setAttribute('class', 'visible');
+						d3.selectAll('.config').style('display', 'block');
+						d3.select('.context').style('display', 'block');
+					}
+				});
+				
+			// conf to use widget easier
+			var params = {
+				widget: 'chart_one',
+				prefix: 'chart',
+				timewindow: 'month',
+				context: {
+					format: '%b'
+				},
+				circles: true,
+				sum: true
+			};
+			
+			createChart(register, svg, params);
+			
+			})();
+			</script>
+        </div>
+    </body>
+</html>

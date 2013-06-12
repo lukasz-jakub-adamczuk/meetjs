@@ -1,0 +1,52 @@
+body{
+	font-family: 'Lato', Arial, serif;
+	font-weight: 300;
+	font-size: 14px;
+	color: #888;
+	-webkit-font-smoothing: antialiased;
+}
+
+.container {
+	margin: 0 auto;
+	background: rgba(255,255,255,0.5);
+	box-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+}
+
+svg {
+	background: #eee;
+}
+
+h1 {
+	color: #444;
+	margin: 0 0 10px;
+	font-weight: 300;
+	padding: 10px;
+	text-shadow: 0 1px 1px rgba(255,255,255,0.8);
+	font-size: 24px;
+}
+
+
+circle {
+	fill: rgba(200,0,0,1);
+}
+circle.transparent {
+	fill: rgba(200,0,0,0.3);
+}
+
+text {
+	fill: white;
+	font-size: 16px;
+	font-weight: 700;
+}
+
+.axis path {
+	fill: none;
+	stroke: black;
+	stroke-width: 2px;
+}
+
+.tick text {
+	fill: #888;
+	font-size: auto;
+	font-weight: normal;
+}

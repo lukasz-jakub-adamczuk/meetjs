@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang='en'>
+	<head>
+		<meta charset='UTF-8' />
+		<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'> 
+		<meta name='viewport' content='width=device-width, initial-scale=1.0'> 
+		<title>Traffic Chart - Meet.js Meetup</title>
+		<meta name='description' content='Traffic Chart with D3.js ' />
+		<meta name='keywords' content='d3.js, area charts, zoom, pan, data, infographic, ajavscript, chart' />
+		<meta name='author' content='ash' />
+		<link rel='stylesheet' type='text/css' href='css/style.css' />
+		<link href='http://fonts.googleapis.com/css?family=Lato:300,700' rel='stylesheet' type='text/css' />
+		<script src='js/d3.v3.min.js'></script>
+		<script src='js/traffic_chart.js'></script>
+	</head>
+	<body>
+		<button onclick='init()'>Refresh</button>
+		<div class='container'>
+			<script type='text/javascript'>
+				var dataset = [15, 70, 33];
+				
+				dataset = [1, 1, 1, 1, 1, 1, 1];
+				
+				var services = [
+					{
+						name: 'sport',
+						init: 55
+					}, {
+						name: 'front',
+						init: 70
+					}, {
+						name: 'news',
+						init: 33
+					}, {
+						name: 'travel',
+						init: 45
+					}, {
+						name: 'economy',
+						init: 25
+					}, {
+						name: 'food',
+						init: 40
+					}, {
+						name: 'science',
+						init: 13
+					}
+				];
+				
+				var data = dataset.map(function(d, i) {
+					return {'key': i, 'value': d};
+				});
+				
+				var margin = {top: 50, right: 30, bottom: 50, left: 30},
+					width = 960 - margin.left - margin.right,
+					height = 500 - margin.top - margin.bottom;
+				
+				d3.select('svg').remove();
+				
+				// colors
+				var colors = d3.scale.category10();
+				loadColors = d3.scale.linear().domain([30, 100]).range(['green', 'red']);
+					
+				
+			
+				
+				arc = d3.svg.arc()
+					.outerRadius(225)
+					.innerRadius(155);
+
+				var pie = d3.layout.pie()
+					.sort(null)
+					.value(function(d) { return d; });
+				
+				var changeRadius = false;
+								
+			var init = function() {
+				// remove svg
+				d3.select('svg').remove();
+				
+				svg = d3.select('.container')
+					.append('svg')
+					.attr('width', width + margin.left + margin.right)
+					.attr('height', height + margin.top + margin.bottom)
+						.append('g').attr('transform', 'translate('+margin.left+','+margin.top+')');
+				
+				var ring = svg.append('g')
+					.attr('class', 'ring')
+					.attr('transform', 'translate(' + width / 2 + ',' + height / 2 + ')');
+				
+				var circles = svg.append('g')
+					.attr('class', 'circles')
+					.attr('transform', 'translate(' + width / 2 + ',' + height / 2 + ')');
+				
+				var names = services.map(function(d, i) { return d.name; });
+				
+				pie(dataset).forEach(function(itm, i) {
+					createServiceCircle(names[i], arc.centroid(itm)[0], arc.centroid(itm)[1]);
+				});
+			};
+			
+			var update = function() {
+				
+				calculateRadius('.front');
+				calculateRadius('.sport');
+				calculateRadius('.news');
+				calculateRadius('.travel');
+				calculateRadius('.economy');
+				calculateRadius('.food');
+				calculateRadius('.science');
+				
+			};
+			
+			init();
+ 			setInterval('update()', 1000);
+			</script>
+		</div>
+	</body>
+</html>

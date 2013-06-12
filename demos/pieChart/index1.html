@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang='en'>
+	<head>
+		<meta charset='UTF-8' />
+		<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'> 
+		<meta name='viewport' content='width=device-width, initial-scale=1.0'> 
+		<title>Pie Chart - Meet.js Meetup</title>
+		<meta name='description' content='Pie Chart with D3.js ' />
+		<meta name='keywords' content='d3.js, area charts, zoom, pan, data, infographic, ajavscript, chart' />
+		<meta name='author' content='ash' />
+		<link rel='stylesheet' type='text/css' href='css/style.css' />
+		<link href='http://fonts.googleapis.com/css?family=Lato:300,700' rel='stylesheet' type='text/css' />
+		<script src='data/data.json'></script>
+		<script src='js/d3.v3.min.js'></script>
+		<script src='js/d3_pie_chart.js'></script>
+	</head>
+	<body>
+		<!--<button onclick="init()">Refresh</button>-->
+		<button onclick="update()">Update</button>
+		<span id="timer"></span>
+		<div class="container">
+			<script type="text/javascript">
+			
+				var labels = {
+					'age_0': 'Under 18',
+					'age_18': '18 - 25',
+					'age_26': '26 - 35',
+					'age_36': '36 - 45',
+					'age_46': '46+',
+					'age_undisclosed': 'Undisclosed'
+				};
+				
+				var data = prepareData(ages);
+				
+				var margin = {top: 50, right: 10, bottom: 50, left: 10},
+					width = 960 - margin.left - margin.right,
+					height = 500 - margin.top - margin.bottom;
+				
+				width = 560;
+				height = 200;
+				
+				var colors = d3.scale.category10();
+				
+				var arc = d3.svg.arc()
+					.outerRadius(75)
+					.innerRadius(55);
+
+				var pie = d3.layout.pie()
+					.sort(null)
+					.value(function(d) { return d.value; });
+				
+				var arc2 = d3.svg.arc()
+					.outerRadius(100)
+					.innerRadius(80);
+				
+				var svg = d3.select('.container')
+					.append('svg')
+					.attr('width', width)
+					.attr('height', height);
+
+				var chart1 = svg.append('g')
+						.attr('transform', 'translate(' + width / 6 * 1 + ',' + height / 2 + ')');
+					
+				var chart2 = svg.append('g')
+						.attr('transform', 'translate(' + width / 6 * 3 + ',' + height / 2 + ')');
+				
+				var show_total = false;
+				
+			var init = function() {
+				
+				//d3.select('svg').remove();
+				
+				// charts
+				createPie(data.all, chart1, arc, arc2, pie, data.total.all, 'All', show_total);
+				//createPie(data.today, chart2, arc, arc2, pie, data.total.today, 'Today', show_total);
+				
+				var legendScale = d3.scale.linear()
+					.domain([0, data.all.length-1])
+					.range([0, (data.all.length-1)*20]);
+				
+				svg.append('g')
+					.attr('class', 'legend')
+					.attr('transform', 'translate(' + width / 6 * 4.5 + ',' + height / 5 + ')')
+					.selectAll('g')
+					.data(data.all)
+					.enter()
+					.append('g')
+					.attr('transform', function(d, i) { return 'translate(0, ' + legendScale(i) + ')'; });
+					
+				var legend = svg.selectAll('.legend g');
+				
+				legend.append('circle').attr('cx', '-10').attr('cy', '-3').attr('r', '5').style('fill', function(d, i) { return colors(d.key); });
+				legend.append('text').attr('text-anchor', 'start').text(function(d) { return labels[d.key]; });
+				
+				
+			};
+			
+			var update = function() {
+				var data = randomizePie();
+				
+				data = calculateData(data);
+				
+				updatePie(data.all, chart1, data.total.all);
+				updatePie(data.today, chart2, data.total.today);
+			};
+			
+ 			init();
+ 			
+ 			timeout = 1;
+ 			
+ 			var sec = timeout;
+ 			
+ 			document.getElementById('timer').innerHTML = sec;
+				
+			setInterval(function() { if (sec == 1) { sec = timeout; } else { sec -= 1; } document.getElementById('timer').innerHTML = sec; }, 1000);
+			//setInterval(function() { update(); }, timeout * 1000);
+				
+ 			//setInterval(function() { init(); }, 15000);
+ 			
+ 			// clicker
+ 			//setInterval(function() { update(); }, 1000);
+
+			</script>
+		</div>
+	</body>
+</html>

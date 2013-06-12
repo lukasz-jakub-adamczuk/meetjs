@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>data-driven documents - Meet.js Meetup</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+				<section>
+					<section>
+						<h1>d3.js</h1>
+						<h2>oraz</h2>
+						<h3>dane czasu rzeczywistego</h3>
+						<p>
+							<small><a href="http://adamczuk.net/">Łukasz Adamczuk</a><!-- / <a href="http://twitter.com/lukasz-jakub-adamczuk">@lukasz-jakub-adamczuk</a>--></small>
+						</p>
+					</section>
+					<section>
+						<h2>Plan prezentacji</h2>
+						<ol>
+							<li>Wizualizacja danych</li>
+							<li>Plusy i minusy</li>
+							<li>Interaktywny monitoring</li>
+							<li>Podsumowanie</li>
+						</ol>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Co to takiego?</h2>
+					</section>
+					
+					<section>
+						<h2>Szczegóły</h2>
+						<ul>
+							<li>Jedna z najpopularniejszych bibliotek na GitHub</li>
+							<li>293kB (137kB)</li>
+							<li>Licencja BSD</li>
+							<li>Autorem jest <a href="https://github.com/mbostock">Mike Bostock</a></li>
+						</ul>
+					</section>
+				</section>
+				
+				<section>
+					<section>
+						<h2>Dlaczego?</h2>
+					</section>
+					<section>
+						<p>
+							Łączy dane z elementami DOM
+						</p>
+						<object data="../examples/reel/index1.html" type="text/html" width="960" height="500">
+						</object>
+					</section>
+					<section>
+						<p>
+							Wspiera CSS oraz JS
+						</p>
+						<object data="../examples/reel/index2.html" type="text/html" width="960" height="500">
+						</object>
+					</section>
+					<section>
+						<p>
+							Łatwość analizowania i rozszerzania
+						</p>
+						<object data="../examples/reel/index3.html" type="text/html" width="960" height="500">
+						</object>
+					</section>
+					<section>
+						<p>
+							Szybkość, prostota i wydajność
+						</p>
+						<object data="../examples/reel/index4.html" type="text/html" width="960" height="500">
+						</object>
+					</section>
+					<section>
+						<p>
+							Animacje i przejścia
+						</p>
+						<object data="../examples/reel/index.html" type="text/html" width="960" height="500">
+						</object>
+					</section>
+				</section>
+				
+				<section>
+					<h2>Wizualizacja</h2>
+				</section>
+				
+				<section>
+					<h2>Potrzeby</h2>
+					<ul>
+						<li>Szybkie analizowanie informacji</li>
+						<li>Obserwowanie relacji między danymi</li>
+						<li>Badanie sytuacji niecodziennych</li>
+						<li>Podejmowalnie lepszych decyzji</li>
+					</ul>
+				</section>
+				
+				<section>
+					<h2>Trudności</h2>
+					<ul>
+						<li>Silne i słabe punkty ludzkiej percepcji</li>
+						<li>Transformowanie danych do czytelnej formy</li>
+						<li>Rodzaje kanałów wizualnych</li>
+					</ul>
+				</section>
+				
+				<section>
+					<h2>Możliwości</h2>
+					<ul>
+						<li>Interaktywne elementy wizualizacji</li>
+						<li>Manipulacja koloru, wielkości, kształtu, wartości, itp.</li>
+						<li>Przyrostowe ładowowanie danych</li>
+						<li>Szczegóły na żądanie</li>
+					</ul>
+				</section>
+				
+				<section>
+					<h1>Błędy</h1>
+				</section>
+				
+				<section>
+					<section>
+						<p>
+							Zbyt duża zmienność danych
+						</p>
+						<img src="../examples/images/noise.png" />
+					</section>
+					<section>
+						<p>
+							Mała zmienność danych
+						</p>
+						<img src="../examples/images/no-noise.png" />
+					</section>
+				</section>
+				
+				<section>
+					<section>
+						<p>
+							Zbyt duża liczba serii i danych
+						</p>
+						<img src="../examples/images/too-many-1.png" />
+					</section>
+					<section>
+						<p>
+							Duża liczba serii o mniejszej zmienności
+						</p>
+						<img src="../examples/images/too-many-2.png" />
+					</section>
+					<section>
+						<p>
+							Mała liczba serii o małej zmienności
+						</p>
+						<img src="../examples/images/too-many-3.png" />
+					</section>
+				</section>
+				
+				<section>
+					<section>
+						<p>
+							Łatwość obserwacji pierwszej serii i sumy
+						</p>
+						<p>
+							Trudność analizy serii pośrednich
+						</p>
+						<img src="../examples/images/stacked-1.png" />
+					</section>
+					<section>
+						<p>
+							Trudność obserwacji sumy
+						</p>
+						<p>
+							Łatwość analizy wszystkich serii
+						</p>
+						<img src="../examples/images/stacked-2.png" />
+					</section>
+				</section>
+				
+				<section>
+					<h1>Przykłady</h1>
+				</section>
+				
+				<section>
+					<section>
+						<h2>Wykres liniowy</h2>
+					</section>
+					<section>
+						<p>
+							Widok ogólny i szczegółowy
+						</p>
+						<object data="../demos/lineChart/index1.html" type="text/html" width="960" height="500">
+						</object>
+					</section>
+					<section>
+						<p>
+							Kontekst i powiększenie
+						</p>
+						<object data="../demos/lineChart/index2.html" type="text/html" width="960" height="500">
+						</object>
+					</section>
+					<section>
+						<p>
+							Niezależne serie i osie
+						</p>
+						<object data="../demos/lineChart/index3.html" type="text/html" width="960" height="500">
+						</object>
+					</section>
+				</section>
+				
+				<section>
+					<section>
+						<h2>Wykres kołowy</h2>
+					</section>
+					<section>
+						<p>
+							Procentowy udział w okresie czasu
+						</p>
+						<object data="../demos/pieChart/index1.html" type="text/html" width="960" height="500">
+						</object>
+					</section>
+					<section>
+						<p>
+							Suma poszczególnych elementów
+						</p>
+						<object data="../demos/pieChart/index2.html" type="text/html" width="960" height="500">
+						</object>
+					</section>
+					<section>
+						<p>
+							Ładowanie ostatnich danych i odświeżanie
+						</p>
+						<object data="../demos/pieChart/index.html" type="text/html" width="960" height="500">
+						</object>
+					</section>
+				</section>
+				
+				<section>
+					<section>
+						<h2>Wykres ruchu</h2>
+					</section>
+					<section>
+						<p>
+							Liczba unikalnych użytkowników oraz wejść na strony
+						</p>
+						<object data="../demos/trafficChart/index1.html" type="text/html" width="960" height="500">
+						</object>
+					</section>
+					<section>
+						<p>
+							Ruch sieciowy między serwisami
+						</p>
+						<object data="../demos/trafficChart/index2.html" type="text/html" width="960" height="500">
+						</object>
+					</section>
+					<section>
+						<p>
+							Obciążenie określonych węzłów
+						</p>
+						<object data="../demos/trafficChart/index3.html" type="text/html" width="960" height="500">
+						</object>
+					</section>
+				</section>
+				
+				<section>
+					<section>
+						<h2>Cubism.js</h2>
+						<ul>
+							<li>Skalowany, efektywny i elastyczny</li>
+							<li>Pobieranie ostatnich danych</li>
+							<li>Kompresja w pionie i porównanie serii w poziomie</li>
+						</ul>
+					</section>
+					<section>
+						<h2>
+							Wykres horyzontalny
+						</h2>
+						<object data="../examples/horizon/index.html" type="text/html" width="960" height="500">
+						</object>
+					</section>
+					<section data-state="whiteout">
+						<object data="http://square.github.io/cubism/demo/" type="text/html" width="960" height="500">
+						</object>
+					</section>
+				</section>
+				
+				<section>
+					<h2>Podsumowanie</h2>
+				</section>
+				
+				<section>
+					<h1>Koniec</h1>
+					<h3>Łukasz Adamczuk</h3>
+				</section>
+				
+				<section>
+					<h1>Pytania</h1>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				width: 960,
+				//width: 1024,
+				//width: 1920,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: 'plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+			
+		</script>
+
+	</body>
+</html>
