@@ -1,0 +1,210 @@
+/*@import url('normalize.css');
+@import url('demo.css');
+*/
+
+body{
+	font-family: 'Lato', Arial, serif;
+	font-weight: 300;
+	font-size: 14px;
+	color: #888;
+	background: #fff;
+	-webkit-font-smoothing: antialiased;
+}
+#chart-container {
+	margin: 0 auto;
+	background: rgba(255,255,255,0.5);
+	box-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+	padding: 10px 0;
+}
+
+#chart-container h2 {
+	color: #444;
+	margin: 0 0 10px;
+	font-weight: 300;
+	padding: 10px;
+	text-shadow: 0 1px 1px rgba(255,255,255,0.8);
+	font-size: 24px;
+}
+
+.time-windows span:hover,
+span.active {
+	color: #000;
+	background: #eee;
+}
+
+
+small {
+	background: #eee;
+	padding: 2px 5px;
+	border-radius: 3px;
+}
+
+svg {
+	font-family: 'Lato', Arial, serif;
+	font-size: 10px;
+	font-weight: 700;
+	text-shadow: 0 1px 1px rgba(255,255,255,0.8);
+}
+
+text.country-title {
+	font-size: 20px;
+}
+
+text.instructions {
+	font-size: 16px;
+}
+
+g.context g.brush rect.background {
+	fill: rgba(0,0,0,.1);
+}
+
+g.context g.axis path {
+	stroke-opacity: 0;
+}
+
+g.context g.axis line {
+	stroke-opacity: .1;
+}
+g path.line {
+	stroke: red;
+}
+
+
+.axis path, .axis line {
+	fill: none;
+	stroke: #aaa;
+	shape-rendering: crispEdges;
+}
+
+.serie {
+  fill: none;
+  stroke-width: 1px;
+  stroke: #c00;
+}
+.sum {
+  fill: none;
+  stroke-width: 1px;
+  stroke: #00c;
+}
+
+.serie.green {
+	stroke: green;
+}
+.line.blue {
+	stroke: blue;
+}
+
+
+circle {
+	fill: #fff;
+	stroke-width: 1px;
+}
+circle.active {
+	stroke-width: 2px;
+	stroke: #fff;
+}
+/*
+.red circle {
+	stroke: red;
+}
+.blue circle {
+	stroke: blue;
+}
+
+.red circle.active {
+	fill: red;
+}
+.blue circle.active {
+	fill: blue;
+}*/
+
+.point-value {
+	color: red;
+}
+.point-sum {
+	color: blue;
+}
+
+
+
+.brush .extent {
+	stroke: #f09f8c;
+	fill-opacity: .125;
+	shape-rendering: crispEdges;
+}
+
+.hidden {
+	display: none;
+}
+
+.col {
+	stroke: transparent;
+}
+.col:hover .line {
+	stroke: #eee;
+}
+.lines line {
+	_stroke: transparent;
+}
+.lines line:hover,
+.line.active {
+	stroke: #ccc;
+}
+
+.col {
+	stroke: transparent;
+}
+
+
+/*
+line:hover + line + circle,
+line:hover + circle {
+	stroke: pink;
+	fill: #000;
+}*/
+
+
+/*
+.col:hover + .line,
+.line:hover,
+line.active {
+	stroke: #000;
+}
+line:hover + circle,
+line:hover + line + circle {
+	stroke: red;
+	fill: yellow;
+}
+line:hover + circle.sum,
+line:hover + line + circle.sum {
+	stroke: white;
+	fill: blue;
+}
+
+circle {
+	stroke: red;
+	fill: #26b;
+}
+circle:hover {
+	stroke: green;
+	fill: yellow;
+}
+.cols g line {
+	fill: green;
+	stroke: lime;
+}
+
+line:hover + circle:nth-child(2) {
+	fill: #000;
+	stroke: white;
+}*/
+
+.value-labels span,
+.value-labels strong {
+	display: inline-block;
+	width: 125px;
+}
+.config label {
+	display: inline-block;
+	width: 100px;
+}
